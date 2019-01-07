@@ -14,5 +14,5 @@ module.exports.joinCommand = async (phoneNumber, username) => {
   await createRecord(phoneNumber, username);
 
   // Return the message
-  return `Hi ${username}, you have registered for the Tube Challenge with your number +${phoneNumber}.`;
+  return `Hi ${username}, you have registered for the Tube Challenge with your number +${phoneNumber}. Text INSTRUCTIONS to list the available commands.`;
 }
