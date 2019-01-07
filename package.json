@@ -1,0 +1,33 @@
+{
+  "name": "tube-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mblackford/TubeChallenge.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mblackford/TubeChallenge/issues"
+  },
+  "homepage": "https://github.com/mblackford/TubeChallenge#readme",
+  "dependencies": {
+    "deepmerge": "^3.0.0",
+    "dotenv-safe": "^6.1.0",
+    "esrever": "^0.2.0",
+    "querystring": "^0.2.0",
+    "twilio": "^3.26.1"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.384.0",
+    "jest": "^23.6.0",
+    "prettier": "^1.15.3",
+    "serverless-dotenv-plugin": "^2.0.1"
+  }
+}
