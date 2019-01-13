@@ -1,7 +1,7 @@
 const overgroundStations = require('./overground-stations');
 
 test('the file contains the required number of stations', () => {
-  expect(Object.keys(overgroundStations)).toHaveLength(110);
+  expect(Object.keys(overgroundStations)).toHaveLength(111);
 });
 
 test('select stations contain the right number of lines', () => {
@@ -9,4 +9,6 @@ test('select stations contain the right number of lines', () => {
   expect(overgroundStations['Willesden Junction']).toHaveLength(1);
   expect(overgroundStations['Kensal Rise']).toHaveLength(1);
   expect(overgroundStations['Liverpool Street']).toHaveLength(1);
+  expect(overgroundStations['Brondesbury Park']).toHaveLength(1);
+  expect(overgroundStations['Brondesbury']).toHaveLength(1);
 });

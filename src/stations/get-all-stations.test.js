@@ -1,7 +1,7 @@
 const { getAllStations } = require('./get-all-stations');
 
 test('the correct number of stations is loaded', () => {
-  expect(Object.keys(getAllStations())).toHaveLength(442);
+  expect(Object.keys(getAllStations())).toHaveLength(443);
 });
 
 test('select stations contain the right number of lines', () => {
@@ -12,4 +12,5 @@ test('select stations contain the right number of lines', () => {
   expect(allStations['Canada Water']).toHaveLength(2);
   expect(allStations['Wimbledon']).toHaveLength(2);
   expect(allStations['Liverpool Street']).toHaveLength(6);
+  expect(allStations['Brondesbury Park']).toHaveLength(1);
 });
