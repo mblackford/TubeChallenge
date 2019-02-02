@@ -1,3 +1,5 @@
+'use strict';
+
 const { getAllStations } = require('./get-all-stations');
 
 test('the correct number of stations is loaded', () => {

@@ -1,6 +1,7 @@
 'use strict';
 
 const { getAllStations } = require('../stations/get-all-stations');
+const { getAllLines } = require('../stations/get-all-lines');
 
 module.exports.buildStatus = (visitedStations) => {
   const allStations = getAllStations();
@@ -12,14 +13,20 @@ module.exports.buildStatus = (visitedStations) => {
 }
 
 module.exports.buildExtendedStatus = (visitedStations) => {
-  const firstLine = module.exports.buildStatus(visitedStations);
+  const summaryStatus = module.exports.buildStatus(visitedStations);
   
-  const allStations = getAllStations();
-  const totalCount = count(allStations);
-  const visitCount = count(visitedStations);
-  const totalPercent = Math.round(100 * (visitCount / totalCount));
+  // Create a map of lines and the number of stations in each
+  const allLines = getAllLines();  
+  const lineNames = Object.keys(allLines);
 
-  return firstLine;
+  const lineCounts = {};
+  lineNames.forEach(lineName => {
+    allLines[lineName].forEach(line => {
+      lineCounts[lineName] = {count: 0, total: line.length};
+    });
+  });
+
+  return JSON.stringify(visitedStations);
 }
 
 function count(map) {

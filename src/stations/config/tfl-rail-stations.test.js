@@ -1,3 +1,5 @@
+'use strict';
+
 const tflRailStations = require('./tfl-rail-stations');
 
 test('the file contains the required number of stations', () => {

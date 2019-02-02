@@ -1,3 +1,5 @@
+'use strict';
+
 const dlrStations = require('./dlr-stations');
 
 test('the file contains the required number of stations', () => {

@@ -1,3 +1,5 @@
+'use strict'
+
 const { commandParser } = require('./command-parser');
 const { instructionsCommand } = require('../commands/instructions-command');
 const { joinCommand } = require('../commands/join-command');
@@ -6,10 +8,10 @@ const { undoCommand } = require('../commands/undo-command');
 const { statusCommand } = require('../commands/status-command');
 
 test('an empty or null input throws an error', () => {
-  expect(() => {commandParser('');}).toThrowError('Invalid input');
-  expect(() => {commandParser(' ');}).toThrowError('Invalid input');
-  expect(() => {commandParser(null);}).toThrowError('Invalid input');
-  expect(() => {commandParser(undefined);}).toThrowError('Invalid input');
+  expect(() => {commandParser('');}).toThrow('Invalid input');
+  expect(() => {commandParser(' ');}).toThrow('Invalid input');
+  expect(() => {commandParser(null);}).toThrow('Invalid input');
+  expect(() => {commandParser(undefined);}).toThrow('Invalid input');
 });
 
 test('the instructions command', () => {

@@ -1,3 +1,5 @@
+'use strict'
+
 const { instructionsCommand } = require('./instructions-command');
 
 test('the instructions command response', () => {

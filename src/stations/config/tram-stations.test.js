@@ -1,3 +1,5 @@
+'use strict';
+
 const tramStations = require('./tram-stations');
 
 test('the file contains the required number of stations', () => {

@@ -1,3 +1,5 @@
+'use strict';
+
 const { validateStation } = require('./validate-station');
 
 test('some real stations are valid', () => {

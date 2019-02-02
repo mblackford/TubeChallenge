@@ -1,3 +1,5 @@
+'use strict';
+
 const tubeStations = require('./tube-stations');
 
 test('the file contains the required number of stations', () => {

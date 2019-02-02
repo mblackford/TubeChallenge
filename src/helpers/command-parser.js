@@ -24,7 +24,7 @@ module.exports.commandParser = (input) => {
   const trimmedInput = input.trim();
 
   // Check for a zero length string
-  if (trimmedInput.length == 0) {
+  if (trimmedInput.length === 0) {
     throw new Error('Invalid input');
   }
 

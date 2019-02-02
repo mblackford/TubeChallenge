@@ -5,7 +5,11 @@
   "main": "handler.js",
   "scripts": {
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "test:report": "jest --coverage --forceExit --detectOpenHandles",
+    "verify": "eslint src/",
+    "verify:strict": "eslint --max-warnings=0 src/",
+    "verify:fix": "eslint --fix src/"
   },
   "repository": {
     "type": "git",
@@ -26,8 +30,19 @@
   },
   "devDependencies": {
     "aws-sdk": "^2.384.0",
+    "eslint": "^5.12.0",
+    "eslint-config-nodejs": "^2.0.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-jest": "^22.1.2",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-prettier": "^3.0.1",
     "jest": "^23.6.0",
+    "jest-extended": "^0.11.0",
     "prettier": "^1.15.3",
     "serverless-dotenv-plugin": "^2.0.1"
+  },
+  "engines": {
+    "node": "8.10",
+    "npm": "^6.4.0"
   }
 }

@@ -1,3 +1,5 @@
+'use strict'
+
 const { joinCommand } = require("./join-command");
 
 test("the join command response", async () => {

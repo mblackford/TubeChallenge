@@ -1,3 +1,5 @@
+'use strict'
+
 const { dateFormatter } = require('./date-formatter');
 
 test('the date formats correctly', () => {

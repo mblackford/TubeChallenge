@@ -1,0 +1,9 @@
+env:
+  es6: true
+  node: true
+extends:
+  - eslint:recommended
+  - eslint-config-nodejs
+  - prettier
+  - plugin:node/recommended
+  - plugin:jest/recommended

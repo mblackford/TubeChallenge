@@ -1,3 +1,5 @@
+'use strict';
+
 const { canonicalName } = require('./canonical-name');
 
 test('an empty string does not throw an error', () => {

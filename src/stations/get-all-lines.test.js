@@ -1,3 +1,5 @@
+'use strict';
+
 const { getAllLines } = require('./get-all-lines');
 
 test('the correct number of lines is loaded', () => {
