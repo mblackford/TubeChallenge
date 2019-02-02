@@ -3,7 +3,7 @@
 const { getAllStations } = require('./get-all-stations');
 
 test('the correct number of stations is loaded', () => {
-  expect(Object.keys(getAllStations())).toHaveLength(443);
+  expect(Object.keys(getAllStations())).toHaveLength(444);
 });
 
 test('select stations contain the right number of lines', () => {

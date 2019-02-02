@@ -3,7 +3,7 @@
 const overgroundStations = require('./overground-stations');
 
 test('the file contains the required number of stations', () => {
-  expect(Object.keys(overgroundStations)).toHaveLength(111);
+  expect(Object.keys(overgroundStations)).toHaveLength(112);
 });
 
 test('select stations contain the right number of lines', () => {

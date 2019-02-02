@@ -12,7 +12,7 @@ test('select stations contain the right number of lines', () => {
   expect(allLines['District']).toHaveLength(60);
   expect(allLines['DLR']).toHaveLength(45);
   expect(allLines['Waterloo and City']).toHaveLength(2);
-  expect(allLines['Overground']).toHaveLength(111);
+  expect(allLines['Overground']).toHaveLength(112);
   expect(allLines['TFL Rail']).toHaveLength(23);
   expect(allLines['London Trams']).toHaveLength(39);
 });
