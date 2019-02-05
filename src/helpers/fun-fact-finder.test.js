@@ -3,9 +3,9 @@
 const { funFactFinder } = require("./fun-fact-finder");
 
 test("some stations with facts", () => {
-  expect(funFactFinder("highstreetkensington")).toHaveLength(150);
-  expect(funFactFinder("stpauls")).toHaveLength(178);
-  expect(funFactFinder("chiswickpark")).toHaveLength(132);
+  expect(funFactFinder("highstreetkensington")).toHaveLength(147);
+  expect(funFactFinder("stpauls")).toHaveLength(175);
+  expect(funFactFinder("chiswickpark")).toHaveLength(129);
 });
 
 test("some stations without facts", () => {
