@@ -7,13 +7,13 @@ test('the file contains the required number of fun facts', () => {
 });
 
 test('select stations contain a fun fact', () => {
-  expect(funFacts['St Paul\'s']).toEqual('During the Second World War, the electricity grid control room for the entire of London and Southeast England was housed here, in the lift shaft. Credit thenudge.com');
-  expect(funFacts['Bank']).toEqual('Has the most entrances/exits of any tube station with 12. Credit thenudge.com');
-  expect(funFacts['Chiswick Park']).toEqual('Once known as Acton Green – the name was changed due to there being 7 other Acton stations already. Credit thenudge.com');
+  expect(funFacts['St Paul\'s']).toEqual('During the Second World War, the electricity grid control room for the entire of London and Southeast England was housed here, in the lift shaft. (credit thenudge.com)');
+  expect(funFacts['Bank']).toEqual('Has the most entrances/exits of any tube station with 12. (credit thenudge.com)');
+  expect(funFacts['Chiswick Park']).toEqual('Once known as Acton Green – the name was changed due to there being 7 other Acton stations already. (credit thenudge.com)');
 });
 
 test('every station credits thenudge.com', () => {
   Object.keys(funFacts).forEach((stationName) => {
-    expect(funFacts[stationName]).toContain('. Credit thenudge.com');
+    expect(funFacts[stationName]).toContain('. (credit thenudge.com)');
   });
 });
