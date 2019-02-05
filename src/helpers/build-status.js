@@ -1,7 +1,6 @@
 'use strict';
 
 const { getAllStations } = require('../stations/get-all-stations');
-const { getAllLines } = require('../stations/get-all-lines');
 
 module.exports.buildStatus = (visitedStations) => {
   const allStations = getAllStations();

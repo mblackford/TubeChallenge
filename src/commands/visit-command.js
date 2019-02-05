@@ -6,6 +6,7 @@ const { canonicalName } = require('../helpers/canonical-name');
 const { validateStation } = require('../helpers/validate-station');
 const { dateFormatter } = require('../helpers/date-formatter');
 const { buildStatus } = require('../helpers/build-status');
+const { funFactFinder } = require('../helpers/fun-fact-finder');
 
 module.exports.visitCommand = async (phoneNumber, station) => {
   // Get the user and check if they exist
@@ -39,7 +40,10 @@ module.exports.visitCommand = async (phoneNumber, station) => {
   // Save the user record
   await updateStations(phoneNumber, visitedStations);
 
+  // Is there a fun fact for this station?
+  const funFactPhrase = funFactFinder(canonicalStation);
+
   // Return the response
-  return `Visit to ${station} recorded. ` + buildStatus(visitedStations);
+  return `Visit to ${station} recorded. ` + buildStatus(visitedStations) + funFactPhrase;
 }
 
