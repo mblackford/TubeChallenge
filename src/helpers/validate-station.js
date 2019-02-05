@@ -8,12 +8,14 @@ module.exports.validateStation = (canonicalStation) => {
     return false;
   }
 
-  // Get an array of all the station names
-  const stationNames = Object.keys(getAllStations());
+  // Loop through all stations and see if they match when canonicalised
+  for (const stationName in getAllStations()) {
+    if (canonicalName(stationName) === canonicalStation) {
+      // Return the official station name
+      return stationName;
+    }
+  }
 
-  // Canonicalise them
-  const canonicalisedStations = stationNames.map(canonicalName);
-
-  // Valid if in the list of canonicalised stations
-  return canonicalisedStations.includes(canonicalStation);
+  // Not matching station
+  return undefined;
 }

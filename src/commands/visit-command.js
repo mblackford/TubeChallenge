@@ -19,7 +19,8 @@ module.exports.visitCommand = async (phoneNumber, station) => {
   const canonicalStation = canonicalName(station);
 
   // Check if it's a valid station
-  if (!validateStation(canonicalStation)) {
+  const validatedStation = validateStation(canonicalStation);
+  if (!validatedStation) {
     return `${station} is not a valid station on the TFL map.`;
   }
 
@@ -30,7 +31,7 @@ module.exports.visitCommand = async (phoneNumber, station) => {
   const previousVisits = visitedStations.filter(item => item.station === canonicalStation);
   if (previousVisits.length > 0) {
     const visitDate = dateFormatter(previousVisits[0].visitedAt);
-    return `You have already visited ${station} on ${visitDate}.`;
+    return `You have already visited ${validatedStation} on ${visitDate}.`;
   }
 
   // Add the station to the list
@@ -44,6 +45,5 @@ module.exports.visitCommand = async (phoneNumber, station) => {
   const funFactPhrase = funFactFinder(canonicalStation);
 
   // Return the response
-  return `Visit to ${station} recorded. ` + buildStatus(visitedStations) + funFactPhrase;
+  return `Visit to ${validatedStation} recorded. ` + buildStatus(visitedStations) + funFactPhrase;
 }
-
