@@ -6,8 +6,8 @@
   "scripts": {
     "test": "jest --coverage",
     "test:watch": "jest --watch --notify",
-    "verify": "standard src/**/*.js test/**/*.js",
-    "verify:fix": "standard --fix src/**/*.js test/**/*.js"
+    "verify": "standard src/**/*.js",
+    "verify:fix": "standard --fix src/**/*.js"
   },
   "repository": {
     "type": "git",
