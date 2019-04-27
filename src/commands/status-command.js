@@ -14,6 +14,6 @@ module.exports.statusCommand = async (phoneNumber) => {
   const visitedStations = user.stations || []
 
   // Return the response
-  const visitedStationList = visitedStations.filter(record => record.station)
+  const visitedStationList = visitedStations.map(record => record.station)
   return status.all(visitedStationList)
 }
