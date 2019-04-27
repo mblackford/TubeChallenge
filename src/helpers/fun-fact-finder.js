@@ -7,7 +7,7 @@ module.exports.funFactFinder = (canonicalStation) => {
   for (const factStationName in funFacts) {
     // Is this a fun fact for the station?
     if (canonicalName(factStationName) === canonicalStation) {
-      return 'Fun fact! ' + funFacts[factStationName]
+      return '\n\nFun fact! ' + funFacts[factStationName]
     }
   }
 

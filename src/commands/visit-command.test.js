@@ -7,12 +7,20 @@ const { updateStations } = require('../dynamo/update-stations')
 jest.mock('../dynamo/get-record')
 jest.mock('../dynamo/update-stations')
 
-const userRecord = {
-  stations: [
-    { station: 'brondesburypark', visitedAt: 1549401320357 },
-    { station: 'actoncentral', visitedAt: 1549401329712 }
-  ]
-}
+let userRecord = {}
+
+beforeEach(() => {
+  // Reset the user record between each test (it gets added to otherwise)
+  userRecord = {
+    stations: [
+      { station: 'actoncentral', visitedAt: 1549401320357 },
+      { station: 'deptfordbridge', visitedAt: 1549401329712 }
+    ]
+  }
+
+  // Reset the mocks
+  jest.resetAllMocks()
+})
 
 test('the visit command response for no user record', async () => {
   // Mock the user record from DynamoDB
@@ -42,10 +50,28 @@ test('the visit command response for an unvisited station', async () => {
     `Visit to London Bridge recorded.
 
 You have visited 3 out of 443 stations (1%).
-Jubilee: 0/27.
-Northern: 0/50.
+Jubilee: 1/27.
+Northern: 1/50.
 
 Fun fact! Is the only station on the entire London Underground network with the word “London” in its name. (credit The Nudge)`
+  )
+
+  // Check that the update method was called
+  // TODO Check the data that was changed in the future
+  expect(updateStations).toHaveBeenCalledTimes(1)
+})
+
+test('the visit command response for an unvisited DLR station', async () => {
+  // Mock the user record from DynamoDB
+  getRecord.mockImplementation(() => userRecord)
+
+  // Override the update implementation so that it doesn't call DynamoDB
+  updateStations.mockImplementation(() => {})
+  expect(await visitCommand('07375000000', 'Woolwich ARSENAL')).toEqual(
+    `Visit to Woolwich Arsenal recorded.
+
+You have visited 3 out of 443 stations (1%).
+DLR: 2/45.`
   )
 
   // Check that the update method was called

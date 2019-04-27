@@ -45,5 +45,6 @@ module.exports.visitCommand = async (phoneNumber, station) => {
   const funFactPhrase = funFactFinder(canonicalStation)
 
   // Return the response
-  return `Visit to ${validatedStation.name} recorded.\n\n` + status.station(visitedStations, canonicalStation) + `\n\n` + funFactPhrase
+  const visitedStationList = visitedStations.map(record => record.station)
+  return `Visit to ${validatedStation.name} recorded.\n\n` + status.station(visitedStationList, canonicalStation) + funFactPhrase
 }
