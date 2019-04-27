@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 module.exports.instructionsCommand = (params) => `Welcome to the Tube Challenge! To complete it you must visit every station on the TFL tube map within a single year. Whenever you enter or exit a station (you must go in or out of the barriers), text the station's name. It doesn't count if you are merely changing or passing through.
 

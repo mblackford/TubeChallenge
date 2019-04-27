@@ -1,17 +1,17 @@
-'use strict';
+'use strict'
 
-const { getAllStations } = require('./get-all-stations');
+const { getAllStations } = require('./get-all-stations')
 
 module.exports.getAllLines = () => {
-  const allStations = getAllStations();
-  const stationNames = Object.keys(allStations);
+  const allStations = getAllStations()
+  const stationNames = Object.keys(allStations)
 
-  const lines = {};
+  const lines = {}
   stationNames.forEach(station => {
     allStations[station].forEach(line => {
-      lines[line] = [station, ...(lines[line] || [])];
-    });
-  });
+      lines[line] = [station, ...(lines[line] || [])]
+    })
+  })
 
-  return lines;
+  return lines
 }
