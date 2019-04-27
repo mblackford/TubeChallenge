@@ -14,4 +14,5 @@ test('select stations contain the right number of lines', () => {
   expect(overgroundStations['Brondesbury Park']).toHaveLength(1)
   expect(overgroundStations['Brondesbury']).toHaveLength(1)
   expect(overgroundStations['Acton Central']).toHaveLength(1)
+  expect(overgroundStations['Queens Park']).toHaveLength(1)
 })

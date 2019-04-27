@@ -1,21 +1,16 @@
 'use strict'
 
-const { canonicalName } = require('./canonical-name')
 const { getAllStations } = require('../stations/get-all-stations')
 
 module.exports.validateStation = (canonicalStation) => {
+  // Check for an empty string
   if (canonicalStation.length === 0) {
-    return false
+    return null
   }
 
-  // Loop through all stations and see if they match when canonicalised
-  for (const stationName in getAllStations()) {
-    if (canonicalName(stationName) === canonicalStation) {
-      // Return the official station name
-      return stationName
-    }
-  }
+  // Get an array of the station names
+  const allStations = getAllStations()
 
-  // Not matching station
-  return undefined
+  // Return the correct station (if it exists, null otherwise)
+  return allStations[canonicalStation] || null
 }

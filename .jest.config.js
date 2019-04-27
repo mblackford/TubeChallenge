@@ -1,6 +1,7 @@
 'use strict';
 
 module.exports = {
+  automock: true,
   setupTestFrameworkScriptFile: 'jest-extended',
   collectCoverageFrom: ['src/**/*.js'],
   coverageThreshold: {
@@ -11,4 +12,4 @@ module.exports = {
       statements: 80,
     },
   },
-};
+}

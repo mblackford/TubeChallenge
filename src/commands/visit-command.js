@@ -5,8 +5,8 @@ const { getRecord } = require('../dynamo/get-record')
 const { canonicalName } = require('../helpers/canonical-name')
 const { validateStation } = require('../helpers/validate-station')
 const { dateFormatter } = require('../helpers/date-formatter')
-const { buildStatus } = require('../helpers/build-status')
 const { funFactFinder } = require('../helpers/fun-fact-finder')
+const status = require('../helpers/status')
 
 module.exports.visitCommand = async (phoneNumber, station) => {
   // Get the user and check if they exist
@@ -31,7 +31,7 @@ module.exports.visitCommand = async (phoneNumber, station) => {
   const previousVisits = visitedStations.filter(item => item.station === canonicalStation)
   if (previousVisits.length > 0) {
     const visitDate = dateFormatter(previousVisits[0].visitedAt)
-    return `You have already visited ${validatedStation} on ${visitDate}.`
+    return `You have already visited ${validatedStation.name} on ${visitDate}.`
   }
 
   // Add the station to the list
@@ -45,5 +45,5 @@ module.exports.visitCommand = async (phoneNumber, station) => {
   const funFactPhrase = funFactFinder(canonicalStation)
 
   // Return the response
-  return `Visit to ${validatedStation} recorded. ` + buildStatus(visitedStations) + funFactPhrase
+  return `Visit to ${validatedStation.name} recorded.\n\n` + status.station(visitedStations, canonicalStation) + `\n\n` + funFactPhrase
 }

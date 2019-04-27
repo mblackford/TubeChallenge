@@ -5,12 +5,14 @@ const { joinCommand } = require('../commands/join-command')
 const { visitCommand } = require('../commands/visit-command')
 const { undoCommand } = require('../commands/undo-command')
 const { statusCommand } = require('../commands/status-command')
+const { checkCommand } = require('../commands/check-command')
 
 const commandMap = {
   instructions: instructionsCommand,
   join: joinCommand,
   visit: visitCommand,
   undo: undoCommand,
+  check: checkCommand,
   status: statusCommand
 }
 

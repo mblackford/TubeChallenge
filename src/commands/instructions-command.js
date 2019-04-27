@@ -5,6 +5,7 @@ module.exports.instructionsCommand = (params) => `Welcome to the Tube Challenge!
 JOIN [Your Name]: register for the Tube Challenge.
 VISIT [Station Name]: records a visit.
 UNDO [Station Name]: forgets a visit.
+CHECK [Station Name]: check if the station has been visited.
 STATUS: lists your progress.
 INSTRUCTIONS: this instructional message.
 

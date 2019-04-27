@@ -1,9 +1,9 @@
 'use strict'
 
 const { getRecord } = require('../dynamo/get-record')
-const { buildExtendedStatus } = require('../helpers/build-status')
+const status = require('../helpers/status')
 
-module.exports.statusCommand = async (phoneNumber, station) => {
+module.exports.statusCommand = async (phoneNumber) => {
   // Get the user and check if they exist
   const user = await getRecord(phoneNumber)
   if (!user) {
@@ -14,5 +14,5 @@ module.exports.statusCommand = async (phoneNumber, station) => {
   const visitedStations = user.stations || []
 
   // Return the response
-  return buildExtendedStatus(visitedStations)
+  return status.all(visitedStations)
 }

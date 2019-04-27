@@ -6,6 +6,7 @@ const { joinCommand } = require('../commands/join-command')
 const { visitCommand } = require('../commands/visit-command')
 const { undoCommand } = require('../commands/undo-command')
 const { statusCommand } = require('../commands/status-command')
+const { checkCommand } = require('../commands/check-command')
 
 test('an empty or null input throws an error', () => {
   expect(() => { commandParser('') }).toThrow('Invalid input')
@@ -31,6 +32,10 @@ test('the vist command', () => {
 
 test('the undo command', () => {
   expect(commandParser('UNDO Chiswick Park ')).toEqual({ command: undoCommand, params: 'Chiswick Park' })
+})
+
+test('the check command', () => {
+  expect(commandParser('CHECK Chiswick Park ')).toEqual({ command: checkCommand, params: 'Chiswick Park' })
 })
 
 test('the status command', () => {

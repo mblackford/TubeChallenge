@@ -8,7 +8,7 @@ module.exports.getAllLines = () => {
 
   const lines = {}
   stationNames.forEach(station => {
-    allStations[station].forEach(line => {
+    allStations[station].lines.forEach(line => {
       lines[line] = [station, ...(lines[line] || [])]
     })
   })
