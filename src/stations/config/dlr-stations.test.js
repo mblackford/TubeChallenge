@@ -10,4 +10,5 @@ test('select stations contain the right number of lines', () => {
   expect(dlrStations['Deptford Bridge']).toHaveLength(1);
   expect(dlrStations['Bank']).toHaveLength(1);
   expect(dlrStations['Shadwell']).toHaveLength(1);
+  expect(dlrStations['Woolwich Arsenal']).toHaveLength(1);
 });
