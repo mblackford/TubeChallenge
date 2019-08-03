@@ -16,7 +16,7 @@ test('the status command response', async () => {
   // Mock the user record from DynamoDB
   getRecord.mockImplementation(() => userRecord)
   expect(await statusCommand('07375000000')).toEqual(
-    `You have visited 2 out of 443 stations (0%).
+    `You have visited 2 out of 444 stations (0%).
 Bakerloo: 0/25.
 Central: 0/49.
 Circle: 0/35.
@@ -28,7 +28,14 @@ Jubilee: 0/27.
 London Trams: 0/39.
 Metropolitan: 0/34.
 Northern: 0/50.
-Overground: 2/112.
+Overground (East London): 0/23.
+Overground (Goblin): 0/12.
+Overground (Lea Valley): 0/25.
+Overground (North London): 2/23.
+Overground (Romford-Upminster): 0/3.
+Overground (South London): 0/19.
+Overground (Watford DC): 0/19.
+Overground (West London): 0/6.
 Piccadilly: 0/53.
 TFL Rail: 0/23.
 Victoria: 0/16.

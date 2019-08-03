@@ -4,7 +4,7 @@ const { getAllLines } = require('./get-all-lines')
 
 test('the correct number of lines is loaded', () => {
   const allLines = getAllLines()
-  expect(Object.keys(allLines)).toHaveLength(16)
+  expect(Object.keys(allLines)).toHaveLength(23)
 })
 
 test('select lines contain the right number of stations', () => {
@@ -12,7 +12,14 @@ test('select lines contain the right number of stations', () => {
   expect(allLines['District']).toHaveLength(60)
   expect(allLines['DLR']).toHaveLength(45)
   expect(allLines['Waterloo and City']).toHaveLength(2)
-  expect(allLines['Overground']).toHaveLength(112)
+  expect(allLines['Overground (East London)']).toHaveLength(23)
+  expect(allLines['Overground (Goblin)']).toHaveLength(12)
+  expect(allLines['Overground (Lea Valley)']).toHaveLength(25)
+  expect(allLines['Overground (North London)']).toHaveLength(23)
+  expect(allLines['Overground (Romford-Upminster)']).toHaveLength(3)
+  expect(allLines['Overground (South London)']).toHaveLength(19)
+  expect(allLines['Overground (Watford DC)']).toHaveLength(19)
+  expect(allLines['Overground (West London)']).toHaveLength(6)
   expect(allLines['TFL Rail']).toHaveLength(23)
   expect(allLines['London Trams']).toHaveLength(39)
 })

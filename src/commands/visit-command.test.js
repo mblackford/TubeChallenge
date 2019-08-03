@@ -49,7 +49,7 @@ test('the visit command response for an unvisited station', async () => {
   expect(await visitCommand('07375000000', 'London BRIDGE')).toEqual(
     `Visit to London Bridge recorded.
 
-You have visited 3 out of 443 stations (1%).
+You have visited 3 out of 444 stations (1%).
 Jubilee: 1/27.
 Northern: 1/50.
 
@@ -70,7 +70,7 @@ test('the visit command response for an unvisited DLR station', async () => {
   expect(await visitCommand('07375000000', 'Woolwich ARSENAL')).toEqual(
     `Visit to Woolwich Arsenal recorded.
 
-You have visited 3 out of 443 stations (1%).
+You have visited 3 out of 444 stations (1%).
 DLR: 2/45.`
   )
 
