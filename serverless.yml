@@ -22,7 +22,7 @@ plugins:
 
 provider:
   name: aws
-  runtime: nodejs8.10
+  runtime: nodejs12.13
 
 # you can overwrite defaults here
 #  stage: dev
