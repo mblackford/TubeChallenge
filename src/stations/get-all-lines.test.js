@@ -17,7 +17,7 @@ test('select lines contain the right number of stations', () => {
   expect(allLines['Overground (Lea Valley)']).toHaveLength(25)
   expect(allLines['Overground (North London)']).toHaveLength(23)
   expect(allLines['Overground (Romford-Upminster)']).toHaveLength(3)
-  expect(allLines['Overground (South London)']).toHaveLength(19)
+  expect(allLines['Overground (South London)']).toHaveLength(18)
   expect(allLines['Overground (Watford DC)']).toHaveLength(19)
   expect(allLines['Overground (West London)']).toHaveLength(6)
   expect(allLines['TFL Rail']).toHaveLength(23)
