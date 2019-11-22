@@ -78,3 +78,59 @@ DLR: 2/45.`
   // TODO Check the data that was changed in the future
   expect(updateStations).toHaveBeenCalledTimes(1)
 })
+
+test('the visit command response when less than 100 stations', async () => {
+  // Mock the user record from DynamoDB
+  const fakeStations = []
+  for (let index = 0; index < 400; index++) {
+    fakeStations.push({ station: 'actoncentral', visitedAt: 1549401320357 })
+  }
+  const bigRecord = { stations: fakeStations }
+  getRecord.mockImplementation(() => bigRecord)
+
+  // Override the update implementation so that it doesn't call DynamoDB
+  updateStations.mockImplementation(() => {})
+
+  // Run the command
+  expect(await visitCommand('07375000000', 'Southfields')).toEqual(
+    `Visit to Southfields recorded.
+
+You have visited 401 out of 443 stations (91%).
+District: 1/60.
+
+Fun fact! The station platform undergoes a makeover each year to coincide with the Wimbledon tennis tournament. Wimbledon station doesn't. (credit The Nudge)
+
+Only 42 stations to go!`
+  )
+
+  // Check that the update method was called
+  // TODO Check the data that was changed in the future
+  expect(updateStations).toHaveBeenCalledTimes(1)
+})
+
+test('the visit command response when 1 station remaining', async () => {
+  // Mock the user record from DynamoDB
+  const fakeStations = []
+  for (let index = 0; index < 441; index++) {
+    fakeStations.push({ station: 'actoncentral', visitedAt: 1549401320357 })
+  }
+  const bigRecord = { stations: fakeStations }
+  getRecord.mockImplementation(() => bigRecord)
+
+  // Override the update implementation so that it doesn't call DynamoDB
+  updateStations.mockImplementation(() => {})
+
+  // Run the command
+  expect(await visitCommand('07375000000', 'Acton Main Line')).toEqual(
+    `Visit to Acton Main Line recorded.
+
+You have visited 442 out of 443 stations (100%).
+TFL Rail: 1/23.
+
+Only 1 last station to go! So close now!`
+  )
+
+  // Check that the update method was called
+  // TODO Check the data that was changed in the future
+  expect(updateStations).toHaveBeenCalledTimes(1)
+})

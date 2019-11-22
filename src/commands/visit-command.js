@@ -6,6 +6,7 @@ const { canonicalName } = require('../helpers/canonical-name')
 const { validateStation } = require('../helpers/validate-station')
 const { dateFormatter } = require('../helpers/date-formatter')
 const { funFactFinder } = require('../helpers/fun-fact-finder')
+const { toGoMessage } = require('../helpers/to-go-message')
 const status = require('../helpers/status')
 
 module.exports.visitCommand = async (phoneNumber, station) => {
@@ -44,7 +45,14 @@ module.exports.visitCommand = async (phoneNumber, station) => {
   // Is there a fun fact for this station?
   const funFactPhrase = funFactFinder(canonicalStation)
 
+  // Is there a countdown to the end message?
+  const toGoMsg = toGoMessage(count(visitedStations))
+
   // Return the response
   const visitedStationList = visitedStations.map(record => record.station)
-  return `Visit to ${validatedStation.name} recorded.\n\n` + status.station(visitedStationList, canonicalStation) + funFactPhrase
+  return `Visit to ${validatedStation.name} recorded.\n\n` + status.station(visitedStationList, canonicalStation) + funFactPhrase + toGoMsg
+}
+
+function count (map) {
+  return Object.keys(map).length
 }
